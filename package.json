@@ -1,0 +1,37 @@
+{
+  "name": "music-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd build; static",
+    "reset": "rm -rf build && mkdir build",
+    "css": "postcss *.css -d build/",
+    "image": "imagemin images/* --out-dir=build/images/",
+    "static-files": "cp *.html build/ && cp *.json build/",
+    "js": "uglifyjs index.js > build/index.js && uglifyjs song.js > build/song.js && uglifyjs album.js > build/album.js",
+    "build": "npm run reset && npm run css && npm run image && npm run static-files && npm run js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liyue2/music-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liyue2/music-demo/issues"
+  },
+  "homepage": "https://github.com/liyue2/music-demo#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "cssnano": "^3.10.0",
+    "imagemin-cli": "^3.0.0",
+    "node-static": "^0.7.9",
+    "postcss": "^6.0.5",
+    "postcss-cli": "^4.1.0",
+    "static": "^2.0.0",
+    "uglify-es": "^3.0.23"
+  },
+  "dependencies": {}
+}
